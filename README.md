@@ -1,3 +1,5 @@
+Standard project management tools fail under poor network conditions. Syncro-Task is a high-performance, offline-first Kanban board that prioritizes user interaction (INP) and data integrity through optimistic updates and local persistence.
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started

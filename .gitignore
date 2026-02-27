@@ -23,6 +23,7 @@
 # misc
 .DS_Store
 *.pem
+dexie-cloud.*
 
 # debug
 npm-debug.log*

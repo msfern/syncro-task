@@ -1,0 +1,1507 @@
+{
+  "version": "2.8",
+  "variables": {
+    "color.black":           { "type": "color",  "value": "#000000" },
+    "color.deepGray":        { "type": "color",  "value": "#121212" },
+    "color.elevated":        { "type": "color",  "value": "#1C1C1E" },
+    "color.accent":          { "type": "color",  "value": "#007AFF" },
+    "color.priorityHigh":    { "type": "color",  "value": "#FF3B30" },
+    "color.priorityMedium":  { "type": "color",  "value": "#FF9500" },
+    "color.priorityLow":     { "type": "color",  "value": "#34C759" },
+    "color.textPrimary":     { "type": "color",  "value": "#FFFFFF" },
+    "color.textMuted":       { "type": "color",  "value": "#8E8E93" },
+    "spacing.unit":          { "type": "number", "value": 8 },
+    "spacing.cardPadding":   { "type": "number", "value": 16 },
+    "spacing.sidebarWidth":  { "type": "number", "value": 56 },
+    "radius.card":           { "type": "number", "value": 8 },
+    "radius.tag":            { "type": "number", "value": 6 }
+  },
+  "children": [
+
+    {
+      "type": "frame",
+      "id": "f0001",
+      "name": "Desktop — Board View",
+      "x": 0, "y": 0,
+      "width": 1440, "height": 900,
+      "fill": "$color.black",
+      "clip": true,
+      "layout": "none",
+      "children": [
+
+        {
+          "type": "rectangle",
+          "id": "sd001",
+          "name": "Sidebar / Background",
+          "x": 0, "y": 0, "width": 56, "height": 900,
+          "fill": "$color.deepGray",
+          "stroke": { "fill": "#FFFFFF0F", "thickness": { "top": 0, "right": 1, "bottom": 0, "left": 0 }, "align": "inside" }
+        },
+
+        {
+          "type": "rectangle",
+          "id": "sdlg1",
+          "name": "Sidebar / Logo Mark",
+          "x": 16, "y": 16, "width": 24, "height": 24,
+          "fill": "$color.accent",
+          "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "sdlt1",
+          "name": "Sidebar / Logo Lettermark",
+          "x": 22, "y": 20,
+          "content": "S",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "700",
+          "fill": "$color.textPrimary", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "sdn1p",
+          "name": "Sidebar / Nav Board Active Pill",
+          "x": 8, "y": 64, "width": 40, "height": 40,
+          "fill": "#007AFF1F",
+          "cornerRadius": 8
+        },
+        {
+          "type": "icon_font",
+          "id": "sdn1i",
+          "name": "Sidebar / Nav Board Icon (active)",
+          "x": 16, "y": 72, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "grid-2x2",
+          "fill": "$color.accent"
+        },
+        {
+          "type": "icon_font",
+          "id": "sdn2i",
+          "name": "Sidebar / Nav Analytics Icon",
+          "x": 16, "y": 120, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "bar-chart-2",
+          "fill": "$color.textMuted"
+        },
+        {
+          "type": "icon_font",
+          "id": "sdn3i",
+          "name": "Sidebar / Nav Team Settings Icon",
+          "x": 16, "y": 168, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "users",
+          "fill": "$color.textMuted"
+        },
+
+        {
+          "type": "ellipse",
+          "id": "sdav1",
+          "name": "Sidebar / User Avatar",
+          "x": 12, "y": 852, "width": 32, "height": 32,
+          "fill": "#007AFF33",
+          "stroke": { "fill": "#007AFF66", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "sdai1",
+          "name": "Sidebar / User Avatar Initials",
+          "x": 17, "y": 861,
+          "content": "JL",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.accent", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "hd001",
+          "name": "Header / Background",
+          "x": 56, "y": 0, "width": 1384, "height": 64,
+          "fill": "$color.black",
+          "stroke": { "fill": "#FFFFFF0F", "thickness": { "top": 0, "right": 0, "bottom": 1, "left": 0 }, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "hdwm1",
+          "name": "Header / Wordmark",
+          "x": 80, "y": 16,
+          "content": "Syncro-Task",
+          "fontSize": 18, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary", "letterSpacing": -0.5
+        },
+        {
+          "type": "text",
+          "id": "hdbr1",
+          "name": "Header / Breadcrumb",
+          "x": 80, "y": 42,
+          "content": "Board",
+          "fontSize": 12, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.textMuted"
+        },
+        {
+          "type": "icon_font",
+          "id": "hdflt",
+          "name": "Header / Filter Icon",
+          "x": 1246, "y": 20, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "sliders-horizontal",
+          "fill": "$color.textMuted"
+        },
+        {
+          "type": "icon_font",
+          "id": "hdsrt",
+          "name": "Header / Sort Icon",
+          "x": 1278, "y": 20, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "arrow-up-down",
+          "fill": "$color.textMuted"
+        },
+        {
+          "type": "rectangle",
+          "id": "hdntb",
+          "name": "Header / New Task Button BG",
+          "x": 1310, "y": 16, "width": 106, "height": 32,
+          "fill": "$color.accent",
+          "cornerRadius": 8
+        },
+        {
+          "type": "text",
+          "id": "hdntt",
+          "name": "Header / New Task Button Label",
+          "x": 1324, "y": 24,
+          "content": "+ New Task",
+          "fontSize": 13, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary"
+        },
+
+        {
+          "type": "text",
+          "id": "c1ttl",
+          "name": "Column To Do / Title",
+          "x": 80, "y": 96,
+          "content": "To Do",
+          "fontSize": 13, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary", "letterSpacing": 0.1
+        },
+        {
+          "type": "rectangle",
+          "id": "c1bdg",
+          "name": "Column To Do / Count Badge BG",
+          "x": 125, "y": 97, "width": 22, "height": 16,
+          "fill": "#8E8E9329", "cornerRadius": 4
+        },
+        {
+          "type": "text",
+          "id": "c1bdt",
+          "name": "Column To Do / Count",
+          "x": 131, "y": 99,
+          "content": "4",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textMuted"
+        },
+        {
+          "type": "icon_font",
+          "id": "c1add",
+          "name": "Column To Do / Add Card",
+          "x": 336, "y": 93, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "plus",
+          "fill": "$color.textMuted"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c1k01",
+          "name": "Card / Design System Audit",
+          "x": 80, "y": 128, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "c1k01t",
+          "name": "Card / Design System Audit / Title",
+          "x": 96, "y": 144,
+          "content": "Design system audit",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "c1k01pb",
+          "name": "Card / Design System Audit / Priority Tag BG",
+          "x": 96, "y": 168, "width": 44, "height": 18,
+          "fill": "#FF3B301F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "c1k01pt",
+          "name": "Card / Design System Audit / Priority Tag",
+          "x": 101, "y": 172,
+          "content": "High",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityHigh"
+        },
+        {
+          "type": "icon_font",
+          "id": "c1k01si",
+          "name": "Card / Design System Audit / Sync Icon",
+          "x": 96, "y": 196, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "c1k01av",
+          "name": "Card / Design System Audit / Avatar",
+          "x": 320, "y": 192, "width": 24, "height": 24,
+          "fill": "#007AFF33",
+          "stroke": { "fill": "#007AFF4D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "c1k01ai",
+          "name": "Card / Design System Audit / Avatar Initials",
+          "x": 325, "y": 199,
+          "content": "JL",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.accent", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c1k02",
+          "name": "Card / API Documentation",
+          "x": 80, "y": 224, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "c1k02t",
+          "name": "Card / API Documentation / Title",
+          "x": 96, "y": 240,
+          "content": "API documentation update",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "c1k02pb",
+          "name": "Card / API Documentation / Priority Tag BG",
+          "x": 96, "y": 264, "width": 62, "height": 18,
+          "fill": "#FF95001F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "c1k02pt",
+          "name": "Card / API Documentation / Priority Tag",
+          "x": 101, "y": 268,
+          "content": "Medium",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium"
+        },
+        {
+          "type": "icon_font",
+          "id": "c1k02si",
+          "name": "Card / API Documentation / Sync Icon",
+          "x": 96, "y": 292, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "c1k02av",
+          "name": "Card / API Documentation / Avatar",
+          "x": 320, "y": 288, "width": 24, "height": 24,
+          "fill": "#AF52DE33",
+          "stroke": { "fill": "#AF52DE4D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "c1k02ai",
+          "name": "Card / API Documentation / Avatar Initials",
+          "x": 324, "y": 295,
+          "content": "MK",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "#AF52DE", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c1k03",
+          "name": "Card / Onboarding Flow Redesign",
+          "x": 80, "y": 320, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "c1k03t",
+          "name": "Card / Onboarding Flow Redesign / Title",
+          "x": 96, "y": 336,
+          "content": "Onboarding flow redesign",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "c1k03pb",
+          "name": "Card / Onboarding Flow Redesign / Priority Tag BG",
+          "x": 96, "y": 360, "width": 40, "height": 18,
+          "fill": "#34C7591F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "c1k03pt",
+          "name": "Card / Onboarding Flow Redesign / Priority Tag",
+          "x": 101, "y": 364,
+          "content": "Low",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "icon_font",
+          "id": "c1k03si",
+          "name": "Card / Onboarding Flow Redesign / Sync Icon",
+          "x": 96, "y": 388, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "c1k03av",
+          "name": "Card / Onboarding Flow Redesign / Avatar",
+          "x": 320, "y": 384, "width": 24, "height": 24,
+          "fill": "#FF950033",
+          "stroke": { "fill": "#FF95004D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "c1k03ai",
+          "name": "Card / Onboarding Flow Redesign / Avatar Initials",
+          "x": 325, "y": 391,
+          "content": "AR",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c1k04",
+          "name": "Card / Performance Benchmarks",
+          "x": 80, "y": 416, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "c1k04t",
+          "name": "Card / Performance Benchmarks / Title",
+          "x": 96, "y": 432,
+          "content": "Performance benchmarks",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "c1k04pb",
+          "name": "Card / Performance Benchmarks / Priority Tag BG",
+          "x": 96, "y": 456, "width": 62, "height": 18,
+          "fill": "#FF95001F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "c1k04pt",
+          "name": "Card / Performance Benchmarks / Priority Tag",
+          "x": 101, "y": 460,
+          "content": "Medium",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium"
+        },
+        {
+          "type": "icon_font",
+          "id": "c1k04si",
+          "name": "Card / Performance Benchmarks / Sync Icon",
+          "x": 96, "y": 484, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "c1k04av",
+          "name": "Card / Performance Benchmarks / Avatar",
+          "x": 320, "y": 480, "width": 24, "height": 24,
+          "fill": "#34C75933",
+          "stroke": { "fill": "#34C7594D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "c1k04ai",
+          "name": "Card / Performance Benchmarks / Avatar Initials",
+          "x": 325, "y": 487,
+          "content": "DS",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityLow", "textAlign": "center"
+        },
+
+        {
+          "type": "text",
+          "id": "c2ttl",
+          "name": "Column In Progress / Title",
+          "x": 384, "y": 96,
+          "content": "In Progress",
+          "fontSize": 13, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary", "letterSpacing": 0.1
+        },
+        {
+          "type": "rectangle",
+          "id": "c2bdg",
+          "name": "Column In Progress / Count Badge BG",
+          "x": 462, "y": 97, "width": 22, "height": 16,
+          "fill": "#007AFF29", "cornerRadius": 4
+        },
+        {
+          "type": "text",
+          "id": "c2bdt",
+          "name": "Column In Progress / Count",
+          "x": 468, "y": 99,
+          "content": "3",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.accent"
+        },
+        {
+          "type": "icon_font",
+          "id": "c2add",
+          "name": "Column In Progress / Add Card",
+          "x": 640, "y": 93, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "plus",
+          "fill": "$color.textMuted"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c2k01",
+          "name": "Card / Auth Module Refactor",
+          "x": 384, "y": 128, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "c2k01t",
+          "name": "Card / Auth Module Refactor / Title",
+          "x": 400, "y": 144,
+          "content": "Auth module refactor",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "c2k01pb",
+          "name": "Card / Auth Module Refactor / Priority Tag BG",
+          "x": 400, "y": 168, "width": 44, "height": 18,
+          "fill": "#FF3B301F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "c2k01pt",
+          "name": "Card / Auth Module Refactor / Priority Tag",
+          "x": 405, "y": 172,
+          "content": "High",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityHigh"
+        },
+        {
+          "type": "icon_font",
+          "id": "c2k01si",
+          "name": "Card / Auth Module Refactor / Sync Icon",
+          "x": 400, "y": 196, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "c2k01av",
+          "name": "Card / Auth Module Refactor / Avatar",
+          "x": 624, "y": 192, "width": 24, "height": 24,
+          "fill": "#007AFF33",
+          "stroke": { "fill": "#007AFF4D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "c2k01ai",
+          "name": "Card / Auth Module Refactor / Avatar Initials",
+          "x": 629, "y": 199,
+          "content": "JL",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.accent", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c2k02",
+          "name": "Card / Dashboard Analytics",
+          "x": 384, "y": 224, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "c2k02t",
+          "name": "Card / Dashboard Analytics / Title",
+          "x": 400, "y": 240,
+          "content": "Dashboard analytics",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "c2k02pb",
+          "name": "Card / Dashboard Analytics / Priority Tag BG",
+          "x": 400, "y": 264, "width": 62, "height": 18,
+          "fill": "#FF95001F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "c2k02pt",
+          "name": "Card / Dashboard Analytics / Priority Tag",
+          "x": 405, "y": 268,
+          "content": "Medium",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium"
+        },
+        {
+          "type": "icon_font",
+          "id": "c2k02si",
+          "name": "Card / Dashboard Analytics / Sync Icon",
+          "x": 400, "y": 292, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "c2k02av",
+          "name": "Card / Dashboard Analytics / Avatar",
+          "x": 624, "y": 288, "width": 24, "height": 24,
+          "fill": "#AF52DE33",
+          "stroke": { "fill": "#AF52DE4D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "c2k02ai",
+          "name": "Card / Dashboard Analytics / Avatar Initials",
+          "x": 628, "y": 295,
+          "content": "MK",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "#AF52DE", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c2k03",
+          "name": "Card / Deploy Pipeline Config [PENDING]",
+          "x": 384, "y": 320, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF0D", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "opacity": 0.5,
+          "metadata": {
+            "type": "syncState",
+            "state": "pending",
+            "animation": {
+              "property": "opacity", "from": 0.35, "to": 0.65,
+              "duration": 1500, "easing": "ease-in-out",
+              "iterationCount": "infinite", "direction": "alternate"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "id": "c2k03t",
+          "name": "Card / Deploy Pipeline Config [PENDING] / Title",
+          "x": 400, "y": 336,
+          "content": "Deploy pipeline config",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary", "opacity": 0.5
+        },
+        {
+          "type": "rectangle",
+          "id": "c2k03pb",
+          "name": "Card / Deploy Pipeline Config [PENDING] / Priority Tag BG",
+          "x": 400, "y": 360, "width": 44, "height": 18,
+          "fill": "#FF3B3012", "cornerRadius": 6, "opacity": 0.5
+        },
+        {
+          "type": "text",
+          "id": "c2k03pt",
+          "name": "Card / Deploy Pipeline Config [PENDING] / Priority Tag",
+          "x": 405, "y": 364,
+          "content": "High",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityHigh", "opacity": 0.5
+        },
+        {
+          "type": "icon_font",
+          "id": "c2k03si",
+          "name": "Card / Deploy Pipeline Config [PENDING] / Spinner",
+          "x": 400, "y": 388, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "loader-circle",
+          "fill": "$color.textMuted", "opacity": 0.6,
+          "metadata": { "type": "animation", "animationType": "rotate", "from": 0, "to": 360, "duration": 1000, "easing": "linear", "iterationCount": "infinite" }
+        },
+        {
+          "type": "text",
+          "id": "c2k03sl",
+          "name": "Card / Deploy Pipeline Config [PENDING] / Syncing Label",
+          "x": 420, "y": 390,
+          "content": "Syncing\u2026",
+          "fontSize": 12, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.textMuted", "opacity": 0.6
+        },
+        {
+          "type": "ellipse",
+          "id": "c2k03av",
+          "name": "Card / Deploy Pipeline Config [PENDING] / Avatar",
+          "x": 624, "y": 384, "width": 24, "height": 24,
+          "fill": "#FF95001F",
+          "stroke": { "fill": "#FF950026", "thickness": 1, "align": "inside" },
+          "opacity": 0.5
+        },
+        {
+          "type": "text",
+          "id": "c2k03ai",
+          "name": "Card / Deploy Pipeline Config [PENDING] / Avatar Initials",
+          "x": 629, "y": 391,
+          "content": "AR",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium", "opacity": 0.5, "textAlign": "center"
+        },
+
+        {
+          "type": "text",
+          "id": "c3ttl",
+          "name": "Column Done / Title",
+          "x": 688, "y": 96,
+          "content": "Done",
+          "fontSize": 13, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary", "letterSpacing": 0.1
+        },
+        {
+          "type": "rectangle",
+          "id": "c3bdg",
+          "name": "Column Done / Count Badge BG",
+          "x": 722, "y": 97, "width": 22, "height": 16,
+          "fill": "#34C75929", "cornerRadius": 4
+        },
+        {
+          "type": "text",
+          "id": "c3bdt",
+          "name": "Column Done / Count",
+          "x": 728, "y": 99,
+          "content": "2",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "icon_font",
+          "id": "c3add",
+          "name": "Column Done / Add Card",
+          "x": 944, "y": 93, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "plus",
+          "fill": "$color.textMuted"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c3k01",
+          "name": "Card / Component Library Setup",
+          "x": 688, "y": 128, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF0F", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "opacity": 0.72,
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "c3k01t",
+          "name": "Card / Component Library Setup / Title",
+          "x": 704, "y": 144,
+          "content": "Component library setup",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "#EBEBF599"
+        },
+        {
+          "type": "rectangle",
+          "id": "c3k01pb",
+          "name": "Card / Component Library Setup / Priority Tag BG",
+          "x": 704, "y": 168, "width": 40, "height": 18,
+          "fill": "#34C7591A", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "c3k01pt",
+          "name": "Card / Component Library Setup / Priority Tag",
+          "x": 709, "y": 172,
+          "content": "Low",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityLow", "opacity": 0.72
+        },
+        {
+          "type": "icon_font",
+          "id": "c3k01si",
+          "name": "Card / Component Library Setup / Sync Done Icon",
+          "x": 704, "y": 196, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "circle-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "c3k01av",
+          "name": "Card / Component Library Setup / Avatar",
+          "x": 928, "y": 192, "width": 24, "height": 24,
+          "fill": "#34C75933",
+          "stroke": { "fill": "#34C7594D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "c3k01ai",
+          "name": "Card / Component Library Setup / Avatar Initials",
+          "x": 933, "y": 199,
+          "content": "DS",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityLow", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "c3k02",
+          "name": "Card / CI-CD Integration",
+          "x": 688, "y": 224, "width": 280, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF0F", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "opacity": 0.72,
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "c3k02t",
+          "name": "Card / CI-CD Integration / Title",
+          "x": 704, "y": 240,
+          "content": "CI/CD integration",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "#EBEBF599"
+        },
+        {
+          "type": "rectangle",
+          "id": "c3k02pb",
+          "name": "Card / CI-CD Integration / Priority Tag BG",
+          "x": 704, "y": 264, "width": 62, "height": 18,
+          "fill": "#FF95001A", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "c3k02pt",
+          "name": "Card / CI-CD Integration / Priority Tag",
+          "x": 709, "y": 268,
+          "content": "Medium",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium", "opacity": 0.72
+        },
+        {
+          "type": "icon_font",
+          "id": "c3k02si",
+          "name": "Card / CI-CD Integration / Sync Done Icon",
+          "x": 704, "y": 292, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "circle-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "c3k02av",
+          "name": "Card / CI-CD Integration / Avatar",
+          "x": 928, "y": 288, "width": 24, "height": 24,
+          "fill": "#007AFF33",
+          "stroke": { "fill": "#007AFF4D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "c3k02ai",
+          "name": "Card / CI-CD Integration / Avatar Initials",
+          "x": 933, "y": 295,
+          "content": "JL",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.accent", "textAlign": "center"
+        }
+      ]
+    },
+
+    {
+      "type": "frame",
+      "id": "f0002",
+      "name": "Card States — Normal vs Pending",
+      "x": 1520, "y": 0,
+      "width": 800, "height": 480,
+      "fill": "$color.black",
+      "clip": true,
+      "layout": "none",
+      "children": [
+
+        {
+          "type": "text",
+          "id": "f2hd1",
+          "name": "Frame 2 / Title",
+          "x": 40, "y": 24,
+          "content": "Card Component States",
+          "fontSize": 20, "fontFamily": "Inter", "fontWeight": "700",
+          "fill": "$color.textPrimary", "letterSpacing": -0.5
+        },
+        {
+          "type": "text",
+          "id": "f2hd2",
+          "name": "Frame 2 / Subtitle",
+          "x": 40, "y": 52,
+          "content": "Synced (default) vs Pending (optimistic update in-flight)",
+          "fontSize": 13, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.textMuted"
+        },
+
+        {
+          "type": "text",
+          "id": "f2lb1",
+          "name": "Frame 2 / Section Label Synced",
+          "x": 40, "y": 88,
+          "content": "SYNCED STATE",
+          "fontSize": 10, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textMuted", "letterSpacing": 1.2
+        },
+        {
+          "type": "text",
+          "id": "f2lb2",
+          "name": "Frame 2 / Section Label Pending",
+          "x": 440, "y": 88,
+          "content": "PENDING STATE",
+          "fontSize": 10, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textMuted", "letterSpacing": 1.2
+        },
+
+        {
+          "type": "rectangle",
+          "id": "f2nc1",
+          "name": "Card Normal / Background",
+          "x": 40, "y": 108, "width": 320, "height": 200,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" }
+        },
+        {
+          "type": "text",
+          "id": "f2nc1id",
+          "name": "Card Normal / Task ID",
+          "x": 56, "y": 124,
+          "content": "SYN-042",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textMuted", "letterSpacing": 0.4
+        },
+        {
+          "type": "text",
+          "id": "f2nc1t",
+          "name": "Card Normal / Title",
+          "x": 56, "y": 144,
+          "content": "Deploy pipeline config",
+          "fontSize": 16, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "text",
+          "id": "f2nc1d",
+          "name": "Card Normal / Description",
+          "x": 56, "y": 168,
+          "content": "Configure automated deploy stages for staging and production.",
+          "fontSize": 12, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.textMuted",
+          "textGrowth": "fixed-width", "width": 288, "lineHeight": 1.5
+        },
+        {
+          "type": "rectangle",
+          "id": "f2nc1pb",
+          "name": "Card Normal / Priority Tag BG",
+          "x": 56, "y": 216, "width": 44, "height": 20,
+          "fill": "#FF3B301F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "f2nc1pt",
+          "name": "Card Normal / Priority Tag",
+          "x": 61, "y": 220,
+          "content": "High",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "700",
+          "fill": "$color.priorityHigh"
+        },
+        {
+          "type": "icon_font",
+          "id": "f2nc1si",
+          "name": "Card Normal / Sync Icon",
+          "x": 56, "y": 268, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "text",
+          "id": "f2nc1sl",
+          "name": "Card Normal / Sync Label",
+          "x": 76, "y": 270,
+          "content": "Synced",
+          "fontSize": 12, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "f2nc1av",
+          "name": "Card Normal / Avatar",
+          "x": 316, "y": 264, "width": 28, "height": 28,
+          "fill": "#FF950033",
+          "stroke": { "fill": "#FF95004D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "f2nc1ai",
+          "name": "Card Normal / Avatar Initials",
+          "x": 322, "y": 272,
+          "content": "AR",
+          "fontSize": 10, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "f2pc1",
+          "name": "Card Pending / Background",
+          "x": 440, "y": 108, "width": 320, "height": 200,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF0D", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "opacity": 0.5,
+          "metadata": {
+            "type": "syncState",
+            "state": "pending",
+            "animation": {
+              "property": "opacity", "from": 0.35, "to": 0.65,
+              "duration": 1500, "easing": "ease-in-out",
+              "iterationCount": "infinite", "direction": "alternate"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "id": "f2pc1id",
+          "name": "Card Pending / Task ID",
+          "x": 456, "y": 124,
+          "content": "SYN-043",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textMuted", "letterSpacing": 0.4, "opacity": 0.5
+        },
+        {
+          "type": "text",
+          "id": "f2pc1t",
+          "name": "Card Pending / Title",
+          "x": 456, "y": 144,
+          "content": "Update changelog docs",
+          "fontSize": 16, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary", "opacity": 0.5
+        },
+        {
+          "type": "text",
+          "id": "f2pc1d",
+          "name": "Card Pending / Description",
+          "x": 456, "y": 168,
+          "content": "Write release notes and update the public-facing changelog for v2.4.",
+          "fontSize": 12, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.textMuted",
+          "textGrowth": "fixed-width", "width": 288, "lineHeight": 1.5, "opacity": 0.5
+        },
+        {
+          "type": "rectangle",
+          "id": "f2pc1pb",
+          "name": "Card Pending / Priority Tag BG",
+          "x": 456, "y": 216, "width": 62, "height": 20,
+          "fill": "#FF950012", "cornerRadius": 6, "opacity": 0.5
+        },
+        {
+          "type": "text",
+          "id": "f2pc1pt",
+          "name": "Card Pending / Priority Tag",
+          "x": 461, "y": 220,
+          "content": "Medium",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "700",
+          "fill": "$color.priorityMedium", "opacity": 0.5
+        },
+        {
+          "type": "icon_font",
+          "id": "f2pc1si",
+          "name": "Card Pending / Spinner Icon",
+          "x": 456, "y": 268, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "loader-circle",
+          "fill": "$color.textMuted", "opacity": 0.6,
+          "metadata": { "type": "animation", "animationType": "rotate", "from": 0, "to": 360, "duration": 1000, "easing": "linear", "iterationCount": "infinite" }
+        },
+        {
+          "type": "text",
+          "id": "f2pc1sl",
+          "name": "Card Pending / Syncing Label",
+          "x": 476, "y": 270,
+          "content": "Syncing\u2026",
+          "fontSize": 12, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.textMuted", "opacity": 0.6
+        },
+        {
+          "type": "ellipse",
+          "id": "f2pc1av",
+          "name": "Card Pending / Avatar",
+          "x": 716, "y": 264, "width": 28, "height": 28,
+          "fill": "#AF52DE1F",
+          "stroke": { "fill": "#AF52DE26", "thickness": 1, "align": "inside" },
+          "opacity": 0.5
+        },
+        {
+          "type": "text",
+          "id": "f2pc1ai",
+          "name": "Card Pending / Avatar Initials",
+          "x": 722, "y": 272,
+          "content": "MK",
+          "fontSize": 10, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "#AF52DE", "opacity": 0.5, "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "f2an1",
+          "name": "Annotation / Pulse Note BG",
+          "x": 440, "y": 322, "width": 320, "height": 56,
+          "fill": "#FF95000F", "cornerRadius": 6,
+          "stroke": { "fill": "#FF950033", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "f2an1t",
+          "name": "Annotation / Pulse Note",
+          "x": 456, "y": 334,
+          "content": "opacity: 0.35\u20130.65  \u00b7  animation: pulse 1500ms ease-in-out infinite alternate",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.priorityMedium",
+          "textGrowth": "fixed-width", "width": 288, "lineHeight": 1.5
+        },
+        {
+          "type": "rectangle",
+          "id": "f2an2",
+          "name": "Annotation / Spinner Note BG",
+          "x": 440, "y": 390, "width": 320, "height": 40,
+          "fill": "#8E8E930F", "cornerRadius": 6,
+          "stroke": { "fill": "#8E8E9326", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "f2an2t",
+          "name": "Annotation / Spinner Note",
+          "x": 456, "y": 403,
+          "content": "loader-circle  \u00b7  rotate 0\u2192360\u00b0  \u00b7  1000ms linear infinite",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.textMuted"
+        }
+      ]
+    },
+
+    {
+      "type": "frame",
+      "id": "f0003",
+      "name": "Mobile — Board View",
+      "x": 0, "y": 980,
+      "width": 390, "height": 844,
+      "fill": "$color.black",
+      "clip": true,
+      "layout": "none",
+      "children": [
+
+        {
+          "type": "rectangle",
+          "id": "mb001",
+          "name": "Mobile / Status Bar",
+          "x": 0, "y": 0, "width": 390, "height": 48,
+          "fill": "$color.black"
+        },
+        {
+          "type": "text",
+          "id": "mbtm1",
+          "name": "Mobile / Status Bar Time",
+          "x": 16, "y": 16,
+          "content": "9:41",
+          "fontSize": 16, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "icon_font",
+          "id": "mbsi1",
+          "name": "Mobile / Status Bar Signal",
+          "x": 328, "y": 18, "width": 18, "height": 12,
+          "iconFontFamily": "lucide", "iconFontName": "signal",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "icon_font",
+          "id": "mbwf1",
+          "name": "Mobile / Status Bar WiFi",
+          "x": 350, "y": 18, "width": 18, "height": 12,
+          "iconFontFamily": "lucide", "iconFontName": "wifi",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "icon_font",
+          "id": "mbbat",
+          "name": "Mobile / Status Bar Battery",
+          "x": 370, "y": 19, "width": 16, "height": 10,
+          "iconFontFamily": "lucide", "iconFontName": "battery-full",
+          "fill": "$color.textPrimary"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "mhd01",
+          "name": "Mobile / Header Background",
+          "x": 0, "y": 48, "width": 390, "height": 56,
+          "fill": "$color.black",
+          "stroke": { "fill": "#FFFFFF0F", "thickness": { "top": 0, "right": 0, "bottom": 1, "left": 0 }, "align": "inside" }
+        },
+        {
+          "type": "icon_font",
+          "id": "mhdhm",
+          "name": "Mobile / Header Hamburger",
+          "x": 16, "y": 64, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "menu",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "text",
+          "id": "mhdwm",
+          "name": "Mobile / Header Wordmark",
+          "x": 56, "y": 62,
+          "content": "Syncro-Task",
+          "fontSize": 17, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary", "letterSpacing": -0.4
+        },
+        {
+          "type": "icon_font",
+          "id": "mhdsr",
+          "name": "Mobile / Header Search",
+          "x": 350, "y": 64, "width": 24, "height": 24,
+          "iconFontFamily": "lucide", "iconFontName": "search",
+          "fill": "$color.textMuted"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "mcoht",
+          "name": "Mobile / Column Header Background",
+          "x": 0, "y": 104, "width": 390, "height": 40,
+          "fill": "$color.black"
+        },
+        {
+          "type": "text",
+          "id": "mcohttl",
+          "name": "Mobile / Active Column Title",
+          "x": 16, "y": 116,
+          "content": "In Progress",
+          "fontSize": 15, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "mcobd",
+          "name": "Mobile / Column Count Badge BG",
+          "x": 110, "y": 117, "width": 22, "height": 16,
+          "fill": "#007AFF29", "cornerRadius": 4
+        },
+        {
+          "type": "text",
+          "id": "mcobdt",
+          "name": "Mobile / Column Count",
+          "x": 116, "y": 119,
+          "content": "3",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.accent"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "mk0m01",
+          "name": "Mobile / Card Auth Module Refactor",
+          "x": 16, "y": 152, "width": 358, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "mk0m01t",
+          "name": "Mobile / Card Auth Module / Title",
+          "x": 32, "y": 168,
+          "content": "Auth module refactor",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "mk0m01pb",
+          "name": "Mobile / Card Auth Module / Priority Tag BG",
+          "x": 32, "y": 192, "width": 44, "height": 18,
+          "fill": "#FF3B301F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "mk0m01pt",
+          "name": "Mobile / Card Auth Module / Priority Tag",
+          "x": 37, "y": 196,
+          "content": "High",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityHigh"
+        },
+        {
+          "type": "icon_font",
+          "id": "mk0m01si",
+          "name": "Mobile / Card Auth Module / Sync Icon",
+          "x": 32, "y": 220, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "mk0m01av",
+          "name": "Mobile / Card Auth Module / Avatar",
+          "x": 350, "y": 216, "width": 24, "height": 24,
+          "fill": "#007AFF33",
+          "stroke": { "fill": "#007AFF4D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "mk0m01ai",
+          "name": "Mobile / Card Auth Module / Avatar Initials",
+          "x": 355, "y": 223,
+          "content": "JL",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.accent", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "mk0m02",
+          "name": "Mobile / Card Dashboard Analytics",
+          "x": 16, "y": 248, "width": 358, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF14", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "metadata": { "type": "syncState", "state": "synced" }
+        },
+        {
+          "type": "text",
+          "id": "mk0m02t",
+          "name": "Mobile / Card Dashboard Analytics / Title",
+          "x": 32, "y": 264,
+          "content": "Dashboard analytics",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "mk0m02pb",
+          "name": "Mobile / Card Dashboard Analytics / Priority Tag BG",
+          "x": 32, "y": 288, "width": 62, "height": 18,
+          "fill": "#FF95001F", "cornerRadius": 6
+        },
+        {
+          "type": "text",
+          "id": "mk0m02pt",
+          "name": "Mobile / Card Dashboard Analytics / Priority Tag",
+          "x": 37, "y": 292,
+          "content": "Medium",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium"
+        },
+        {
+          "type": "icon_font",
+          "id": "mk0m02si",
+          "name": "Mobile / Card Dashboard Analytics / Sync Icon",
+          "x": 32, "y": 316, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "cloud-check",
+          "fill": "$color.priorityLow"
+        },
+        {
+          "type": "ellipse",
+          "id": "mk0m02av",
+          "name": "Mobile / Card Dashboard Analytics / Avatar",
+          "x": 350, "y": 312, "width": 24, "height": 24,
+          "fill": "#AF52DE33",
+          "stroke": { "fill": "#AF52DE4D", "thickness": 1, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "mk0m02ai",
+          "name": "Mobile / Card Dashboard Analytics / Avatar Initials",
+          "x": 354, "y": 319,
+          "content": "MK",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "#AF52DE", "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "mk0m03",
+          "name": "Mobile / Card Deploy Pipeline [PENDING]",
+          "x": 16, "y": 344, "width": 358, "height": 88,
+          "fill": "$color.deepGray", "cornerRadius": 8,
+          "stroke": { "fill": "#FFFFFF0D", "thickness": 1, "align": "inside" },
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 1 }, "blur": 3, "color": "#00000066" },
+          "opacity": 0.5,
+          "metadata": {
+            "type": "syncState",
+            "state": "pending",
+            "animation": {
+              "property": "opacity", "from": 0.35, "to": 0.65,
+              "duration": 1500, "easing": "ease-in-out",
+              "iterationCount": "infinite", "direction": "alternate"
+            }
+          }
+        },
+        {
+          "type": "text",
+          "id": "mk0m03t",
+          "name": "Mobile / Card Deploy Pipeline [PENDING] / Title",
+          "x": 32, "y": 360,
+          "content": "Deploy pipeline config",
+          "fontSize": 14, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textPrimary", "opacity": 0.5
+        },
+        {
+          "type": "rectangle",
+          "id": "mk0m03pb",
+          "name": "Mobile / Card Deploy Pipeline [PENDING] / Priority Tag BG",
+          "x": 32, "y": 384, "width": 44, "height": 18,
+          "fill": "#FF3B3012", "cornerRadius": 6, "opacity": 0.5
+        },
+        {
+          "type": "text",
+          "id": "mk0m03pt",
+          "name": "Mobile / Card Deploy Pipeline [PENDING] / Priority Tag",
+          "x": 37, "y": 388,
+          "content": "High",
+          "fontSize": 11, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityHigh", "opacity": 0.5
+        },
+        {
+          "type": "icon_font",
+          "id": "mk0m03si",
+          "name": "Mobile / Card Deploy Pipeline [PENDING] / Spinner",
+          "x": 32, "y": 412, "width": 16, "height": 16,
+          "iconFontFamily": "lucide", "iconFontName": "loader-circle",
+          "fill": "$color.textMuted", "opacity": 0.6,
+          "metadata": { "type": "animation", "animationType": "rotate", "from": 0, "to": 360, "duration": 1000, "easing": "linear", "iterationCount": "infinite" }
+        },
+        {
+          "type": "text",
+          "id": "mk0m03sl",
+          "name": "Mobile / Card Deploy Pipeline [PENDING] / Syncing Label",
+          "x": 52, "y": 414,
+          "content": "Syncing\u2026",
+          "fontSize": 12, "fontFamily": "Inter", "fontWeight": "400",
+          "fill": "$color.textMuted", "opacity": 0.6
+        },
+        {
+          "type": "ellipse",
+          "id": "mk0m03av",
+          "name": "Mobile / Card Deploy Pipeline [PENDING] / Avatar",
+          "x": 350, "y": 408, "width": 24, "height": 24,
+          "fill": "#FF95001F",
+          "stroke": { "fill": "#FF950026", "thickness": 1, "align": "inside" },
+          "opacity": 0.5
+        },
+        {
+          "type": "text",
+          "id": "mk0m03ai",
+          "name": "Mobile / Card Deploy Pipeline [PENDING] / Avatar Initials",
+          "x": 355, "y": 415,
+          "content": "AR",
+          "fontSize": 9, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.priorityMedium", "opacity": 0.5, "textAlign": "center"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "mbnav",
+          "name": "Mobile / Bottom Sheet Nav Background",
+          "x": 0, "y": 788, "width": 390, "height": 56,
+          "fill": "$color.deepGray",
+          "cornerRadius": [12, 12, 0, 0],
+          "stroke": { "fill": "#FFFFFF14", "thickness": { "top": 1, "right": 0, "bottom": 0, "left": 0 }, "align": "inside" }
+        },
+        {
+          "type": "text",
+          "id": "mbtd1",
+          "name": "Mobile / Bottom Nav Tab To Do",
+          "x": 40, "y": 810,
+          "content": "To Do",
+          "fontSize": 13, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textMuted"
+        },
+        {
+          "type": "text",
+          "id": "mbip1",
+          "name": "Mobile / Bottom Nav Tab In Progress (active)",
+          "x": 152, "y": 810,
+          "content": "In Progress",
+          "fontSize": 13, "fontFamily": "Inter", "fontWeight": "600",
+          "fill": "$color.textPrimary"
+        },
+        {
+          "type": "rectangle",
+          "id": "mbact",
+          "name": "Mobile / Bottom Nav Active Underline",
+          "x": 152, "y": 832, "width": 78, "height": 2,
+          "fill": "$color.accent", "cornerRadius": 1
+        },
+        {
+          "type": "text",
+          "id": "mbdn1",
+          "name": "Mobile / Bottom Nav Tab Done",
+          "x": 302, "y": 810,
+          "content": "Done",
+          "fontSize": 13, "fontFamily": "Inter", "fontWeight": "500",
+          "fill": "$color.textMuted"
+        },
+
+        {
+          "type": "rectangle",
+          "id": "mbfab",
+          "name": "Mobile / FAB Button",
+          "x": 318, "y": 716, "width": 56, "height": 56,
+          "fill": "$color.accent",
+          "cornerRadius": 28,
+          "effect": { "type": "shadow", "offset": { "x": 0, "y": 4 }, "blur": 16, "color": "#007AFF66" }
+        },
+        {
+          "type": "icon_font",
+          "id": "mbfai",
+          "name": "Mobile / FAB Button Icon",
+          "x": 330, "y": 728, "width": 32, "height": 32,
+          "iconFontFamily": "lucide", "iconFontName": "plus",
+          "fill": "$color.textPrimary"
+        }
+      ]
+    }
+
+  ]
+}
