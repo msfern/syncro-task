@@ -18,5 +18,5 @@ export type Task = z.infer<typeof TaskSchema>;
 
 // This is the type that will be used in the UI
 export type TaskWithUiState = Task & {
-  syncStatus?: 'synced' | 'pending' | 'error';
+  syncStatus?: 'success' | 'pending' | 'error';
 };

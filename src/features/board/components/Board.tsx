@@ -1,5 +1,4 @@
 'use client';
-import { useEffect } from 'react';
 import { useTasks } from '../api/useTasks';
 import Column from './Column';
 
@@ -7,10 +6,6 @@ import Column from './Column';
 
 const Board = () => {
   const { data: tasks = [], isLoading, isError, error } = useTasks();
-
-  useEffect(() => {
-    throw new Error('board error');
-  }, []);
 
   if (isLoading) {
     return <div>Loading...</div>;
