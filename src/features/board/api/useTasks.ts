@@ -1,20 +1,23 @@
-import { useQuery } from "@tanstack/react-query";
-import { z } from "zod";
-import { type Task, TaskSchema } from "../types/task";
+import { useQuery } from '@tanstack/react-query';
+import { type Task, TaskSchema } from '../types/task';
 
 export const useTasks = () => {
   return useQuery({
-    queryKey: ["tasks"],
+    queryKey: ['tasks'],
     queryFn: async (): Promise<Task[]> => {
-      const response = await fetch("/api/tasks");
+      const response = await fetch('/api/tasks');
       if (!response.ok) {
-        throw new Error("Failed to fetch tasks");
+        throw new Error('Failed to fetch tasks');
       }
 
       const data = await response.json();
 
       // Validate the entire array at runtime
-      return z.array(TaskSchema).parse(data);
+      const result = await TaskSchema.array().safeParseAsync(data);
+      if (result.error) {
+        throw new Error(result.error.message);
+      }
+      return result.data;
     },
   });
 };

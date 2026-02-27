@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { useState } from "react";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { useState } from 'react';
 
 export const Providers = ({ children }: { children: React.ReactNode }) => {
   // We use useState to ensure the QueryClient is only created ONCE per browser session
@@ -11,8 +11,9 @@ export const Providers = ({ children }: { children: React.ReactNode }) => {
       new QueryClient({
         defaultOptions: {
           queries: {
-            // staleTime: 1000 * 60 * 5, // 5 minutes
-            staleTime: Number.POSITIVE_INFINITY, // 5 minutes
+            staleTime: 1000 * 60 * 5, // 5 minutes
+            refetchOnWindowFocus: false,
+            retry: false,
           },
         },
       })

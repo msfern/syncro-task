@@ -1,6 +1,6 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 export function MSWProvider({ children }: { children: React.ReactNode }) {
   const [mswReady, setMswReady] = useState(false);
@@ -9,15 +9,13 @@ export function MSWProvider({ children }: { children: React.ReactNode }) {
     const initMsw = async () => {
       // Only run in development and in the browser
       if (
-        process.env.NODE_ENV === "development" &&
-        typeof window !== "undefined"
+        process.env.NODE_ENV === 'development' &&
+        typeof window !== 'undefined'
       ) {
-        const { worker } = await import("@/mocks/browser");
+        const { worker } = await import('@/mocks/browser');
         await worker.start({
-          onUnhandledRequest: "bypass", // Don't warn about images/fonts
+          onUnhandledRequest: 'bypass', // Don't warn about images/fonts
         });
-        setMswReady(true);
-      } else {
         setMswReady(true);
       }
     };
