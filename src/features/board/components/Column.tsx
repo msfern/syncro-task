@@ -1,26 +1,44 @@
 'use client';
 
+import { Droppable } from '@hello-pangea/dnd';
 import { useUpdateTask } from '../api/useUpdateTask';
+import type { Column as ColumnProps } from '../types/column';
 import type { Task } from '../types/task';
 import TaskCard from './TaskCard';
 
 //(Layout) Handles the dropping logic and title.
 
-const Column = ({ title, tasks }: { title: string; tasks: Task[] }) => {
-  const { mutate: updateTask, isPending, isError } = useUpdateTask();
+const Column = ({ status, tasks, title }: ColumnProps) => {
+  const { isPending, isError } = useUpdateTask();
+
   return (
-    <div className="flex flex-col gap-2">
+    <section className="flex flex-col items-center gap-4">
       <h2>{title}</h2>
-      {tasks.map((task) => (
-        <TaskCard
-          isError={isError}
-          isPending={isPending}
-          key={task.id}
-          task={task}
-          updateTask={updateTask}
-        />
-      ))}
-    </div>
+      <Droppable droppableId={status}>
+        {(provided, snapshot) => (
+          <div
+            ref={provided.innerRef}
+            style={{
+              backgroundColor: snapshot.isDraggingOver ? 'yellow' : 'green',
+            }}
+            {...provided.droppableProps}
+          >
+            {tasks.map((task: Task, index: number) => (
+              <TaskCard
+                index={index}
+                isError={isError}
+                isPending={isPending}
+                key={task.id}
+                task={task}
+              />
+            ))}
+
+            {/* 2. Placeholder prevents the column from collapsing */}
+            {provided.placeholder}
+          </div>
+        )}
+      </Droppable>
+    </section>
   );
 };
 

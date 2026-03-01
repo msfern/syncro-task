@@ -1,19 +1,20 @@
 'use client';
 
+import { Draggable } from '@hello-pangea/dnd';
 import type { Task } from '../types/task';
 
 // (Pure Component) Simply displays data.
 
 const TaskCard = ({
+  index,
   isError,
   task,
   isPending,
-  updateTask,
 }: {
+  index: number;
   isError: boolean;
   task: Task;
   isPending: boolean;
-  updateTask: (task: Task) => void;
 }) => {
   const bgColor = (() => {
     if (isError) {
@@ -27,20 +28,21 @@ const TaskCard = ({
 
   const styles = {
     backgroundColor: bgColor,
-    cursor: isError || isPending ? 'not-allowed' : 'pointer',
   };
   return (
-    <div className="rounded-md p-2" style={styles}>
-      <p>{task.title}</p>
-      <button
-        className="rounded-md bg-blue-500 px-4 py-2 text-white"
-        disabled={isError || isPending}
-        onClick={() => updateTask(task)}
-        type="button"
-      >
-        Move to Done
-      </button>
-    </div>
+    <Draggable draggableId={task.id} index={index}>
+      {(provided) => (
+        <div
+          className="rounded-md p-2"
+          ref={provided.innerRef}
+          style={styles}
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+        >
+          <p>{task.title}</p>
+        </div>
+      )}
+    </Draggable>
   );
 };
 

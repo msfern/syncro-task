@@ -1,14 +1,23 @@
 'use client';
+import { DragDropContext } from '@hello-pangea/dnd';
 import { useTasks } from '../api/useTasks';
+import useBoardLogic from '../hooks/useBoardLogic';
+import type { Column as ColumnProps } from '../types/column';
+import BoardSkeleton from './BoardSkeleton';
 import Column from './Column';
 
-// (Container) Handles the data fetching and DragDropContext
+const COLUMNS: { id: ColumnProps['status']; title: string }[] = [
+  { id: 'todo', title: 'To Do' },
+  { id: 'in-progress', title: 'In Progress' },
+  { id: 'done', title: 'Done' },
+];
 
 const Board = () => {
   const { data: tasks = [], isLoading, isError, error } = useTasks();
+  const { taskByStatus, onDragEnd } = useBoardLogic(tasks);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return <BoardSkeleton />;
   }
   if (isError) {
     return <div>Error: {error.message}</div>;
@@ -18,29 +27,21 @@ const Board = () => {
   }
 
   return (
-    <main className="flex grid-cols-1 flex-col items-center gap-4 p-4">
+    <main className="flex flex-col items-center gap-4 p-4">
       <header className="flex items-center justify-between">
         <h1 className="font-bold text-2xl">Board</h1>
-        {/* <button
-          className="rounded-md bg-blue-500 px-4 py-2 text-white"
-          type="button"
-        >
-          New Task
-        </button> */}
       </header>
-      <div className="flex gap-4">
-        <Column
-          tasks={tasks.filter((task) => task.status === 'todo')}
-          title="Todo"
-        />
-        <Column
-          tasks={tasks.filter((task) => task.status === 'in-progress')}
-          title="In Progress"
-        />
-        <Column
-          tasks={tasks.filter((task) => task.status === 'done')}
-          title="Done"
-        />
+      <div className="flex items-center gap-4">
+        <DragDropContext onDragEnd={onDragEnd}>
+          {COLUMNS.map((col) => (
+            <Column
+              key={col.id}
+              status={col.id}
+              tasks={taskByStatus[col.id]}
+              title={col.title}
+            />
+          ))}
+        </DragDropContext>
       </div>
     </main>
   );
