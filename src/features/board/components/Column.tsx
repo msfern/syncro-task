@@ -4,7 +4,7 @@ import { Droppable } from '@hello-pangea/dnd';
 import { useUpdateTask } from '../api/useUpdateTask';
 import type { Column as ColumnProps } from '../types/column';
 import type { Task } from '../types/task';
-import TaskCard from './TaskCard';
+import DraggableTask from './DraggableTask';
 
 //(Layout) Handles the dropping logic and title.
 
@@ -24,7 +24,7 @@ const Column = ({ status, tasks, title }: ColumnProps) => {
             {...provided.droppableProps}
           >
             {tasks.map((task: Task, index: number) => (
-              <TaskCard
+              <DraggableTask
                 index={index}
                 isError={isError}
                 isPending={isPending}

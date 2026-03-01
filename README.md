@@ -59,18 +59,20 @@ flowchart TD
 
     Board --> DragDropContext
     DragDropContext --> Column
-    Column --> TaskCard
+    Column --> DraggableTask
+    DraggableTask --> TaskCard
 ```
 
 ### Component responsibilities
 
-The board is split into three layers, each with a single concern:
+The board is split into four layers, each with a single concern:
 
 | Component | Role |
 |---|---|
 | `Board` | Data container — owns fetching, loading/error states, and `DragDropContext` |
-| `Column` | Layout + drop target — owns `Droppable` and passes visual state (pending/error) to cards |
-| `TaskCard` | Pure display — owns `Draggable`, renders task data, reflects mutation state via background colour |
+| `Column` | Layout + drop target — owns `Droppable` and passes mutation state (pending/error) down |
+| `DraggableTask` | DnD wrapper — owns `Draggable`, translates mutation state into background colours, passes `isDragging` to the card |
+| `TaskCard` | Pure display — accepts `task`, `isDragging?`, and `extra?`; zero DnD or mutation awareness |
 
 Logic that doesn't belong to a render layer lives in `useBoardLogic`: it groups tasks by status and produces the memoized `onDragEnd` callback.
 
@@ -82,7 +84,9 @@ Logic that doesn't belong to a render layer lives in `useBoardLogic`: it groups 
 src/
 ├── app/
 │   ├── MSWProvider.tsx       # Boots the MSW service worker before first render
+│   ├── error.tsx             # Next.js error segment — catches render errors
 │   ├── layout.tsx            # Root layout: fonts, MSWProvider, React Query provider
+│   ├── loading.tsx           # Next.js loading segment — shown during navigation
 │   ├── page.tsx              # Entry point: ErrorBoundary → Board
 │   └── providers.tsx         # QueryClientProvider
 ├── features/
@@ -93,9 +97,10 @@ src/
 │       │   └── useAddTask.ts       # Stub — not yet implemented
 │       ├── components/
 │       │   ├── Board.tsx           # DragDropContext, column layout
-│       │   ├── BoardSkeleton.tsx   # Loading state
-│       │   ├── Column.tsx          # Droppable column
-│       │   ├── TaskCard.tsx        # Draggable card
+│       │   ├── BoardSkeleton.tsx   # Loading skeleton for the board
+│       │   ├── Column.tsx          # Droppable column, renders DraggableTask items
+│       │   ├── DraggableTask.tsx   # Draggable wrapper — owns drag state colours
+│       │   ├── TaskCard.tsx        # Pure display card — no DnD coupling
 │       │   └── Error.tsx           # ErrorBoundary fallback UI
 │       ├── hooks/
 │       │   └── useBoardLogic.ts    # taskByStatus grouping + onDragEnd
@@ -193,6 +198,7 @@ pnpm build
 | `useUpdateTask` hook | Stub | `src/features/board/api/useUpdateTask.test.ts` |
 | `Board` component | Stub | `src/features/board/components/Board.test.tsx` |
 | `Column` component | Stub | `src/features/board/components/Column.test.tsx` |
+| `DraggableTask` component | Stub | `src/features/board/components/DraggableTask.test.tsx` |
 | `TaskCard` component | Stub | `src/features/board/components/TaskCard.test.tsx` |
 
 Planned test additions (in priority order):
@@ -210,7 +216,7 @@ Planned test additions (in priority order):
 | Drag-and-drop reordering | Done | Cross-column and within-column |
 | Optimistic updates + rollback | Done | Full TanStack Query lifecycle |
 | Zod schema validation | Done | `useTasks` network boundary |
-| Loading skeleton | Done | `BoardSkeleton` component |
+| Loading / error states | Done | Next.js `loading.tsx` + `error.tsx` segments; `BoardSkeleton` for in-board loading |
 | Add task (`useAddTask`) | Planned | MSW POST handler exists; hook is a stub |
 | Centralised API client | Planned | `src/lib/api-client.ts` stub |
 | Dexie Cloud offline sync | Planned | Config present; not yet wired to React Query |

@@ -1,48 +1,32 @@
 'use client';
 
-import { Draggable } from '@hello-pangea/dnd';
 import type { Task } from '../types/task';
 
 // (Pure Component) Simply displays data.
 
-const TaskCard = ({
-  index,
-  isError,
-  task,
-  isPending,
-}: {
-  index: number;
-  isError: boolean;
+interface TaskCardProps {
+  // This allows us to pass in extra UI like a "Delete" button later
+  extra?: React.ReactNode;
+  isDragging?: boolean;
   task: Task;
-  isPending: boolean;
-}) => {
-  const bgColor = (() => {
-    if (isError) {
-      return 'red';
-    }
-    if (isPending) {
-      return 'gray';
-    }
-    return 'blue';
-  })();
+}
 
-  const styles = {
-    backgroundColor: bgColor,
-  };
+const TaskCard = ({ task, isDragging, extra }: TaskCardProps) => {
   return (
-    <Draggable draggableId={task.id} index={index}>
-      {(provided) => (
-        <div
-          className="rounded-md p-2"
-          ref={provided.innerRef}
-          style={styles}
-          {...provided.draggableProps}
-          {...provided.dragHandleProps}
-        >
-          <p>{task.title}</p>
-        </div>
+    <div
+      className={`mb-3 rounded-lg border bg-[#1a1a1a] p-4 transition-all ${isDragging ? 'scale-105 border-blue-500 shadow-2xl' : 'border-gray-800'}
+    `}
+    >
+      <div className="flex items-start justify-between">
+        <h4 className="font-medium text-gray-200 text-sm">{task.title}</h4>
+        {extra}
+      </div>
+      {task.description && (
+        <p className="mt-2 line-clamp-2 text-gray-500 text-xs">
+          {task.description}
+        </p>
       )}
-    </Draggable>
+    </div>
   );
 };
 
